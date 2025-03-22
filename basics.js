@@ -17,3 +17,9 @@ var string1 = "Hello"
 var string2 = "world"
 //${} is used as a formating tool to reference variables within backticks (the squiggily line quote thing)
 console.log(`${string1} ${string2}!`)
+
+//Arrays
+let myArray = []
+myArray.push("HI")
+myArray.push("Im John")
+myArray.pop()
