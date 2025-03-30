@@ -41,17 +41,20 @@ typedValueElement.addEventListener('input', () =>{
 
     if(typedValue === currWord && ind === words.length-1){
         const elapsedTime = new Date().getTime - startTime;
-        const msg = `Congrats! you finisehd ${elapsedTime/1000} seconds!`;
-    }
-    else if(typedValue === currWord && ind != words.length-1){
-        ind++;
+        const msg = `Congrats! you finisehd ${elapsedTime} seconds!`;
         typedValueElement.value = '';
+        messageElement.innerHTML = msg;
+    }
+    else if(typedValue.trim() === currWord){
+        typedValueElement.value = '';
+        ind++;
         for(const wordElement of quoteElement.childNodes){
             wordElement.className = '';
         }
         quoteElement.childNodes[ind].className = 'highlight';
     }
-    else if(currentWord.startsWith(typedValue)){
+
+    if(currWord.startsWith(typedValue)){
         typedValueElement.className = '';
     }
     else{
