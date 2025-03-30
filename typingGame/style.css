@@ -6,3 +6,7 @@
     background-color: lightcoral;
     border: red;
 }
+
+.hidden{
+    display: none;
+}

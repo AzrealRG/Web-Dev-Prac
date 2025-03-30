@@ -23,6 +23,7 @@ document.getElementById('start').addEventListener('click',()=>{
     words = temp.split(' ');
     ind = 0;
 
+    typedValueElement.className='';
     const spanWords = words.map(function(word){return `<span>${word}</span>`});
     quoteElement.innerHTML = spanWords.join(' ');
     quoteElement.childNodes[0].className ='highlight';
@@ -42,6 +43,8 @@ typedValueElement.addEventListener('input', () =>{
     if(typedValue === currWord && ind === words.length-1){
         const elapsedTime = new Date().getTime - startTime;
         const msg = `Congrats! you finisehd ${elapsedTime} seconds!`;
+        typedValue.className='hidden';
+        quoteElement.innerHTML='';
         typedValueElement.value = '';
         messageElement.innerHTML = msg;
     }
