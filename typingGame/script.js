@@ -32,7 +32,7 @@ document.getElementById('start').addEventListener('click',()=>{
     typedValueElement.value ='';
     typedValueElement.focus();
 
-    startTime = new Date().getTime();
+    startTime = Date.now();
 })
 
 typedValueElement.addEventListener('input', () =>{
@@ -41,8 +41,9 @@ typedValueElement.addEventListener('input', () =>{
     const typedValue = typedValueElement.value;
 
     if(typedValue === currWord && ind === words.length-1){
-        const elapsedTime = new Date().getTime - startTime;
-        const msg = `Congrats! you finisehd ${elapsedTime} seconds!`;
+        const elapsedTime = Date.now() - startTime;
+        const msg = `Congrats! you finisehd ${elapsedTime/1000} seconds!\n
+                    Your words per minute(WPM) is ${(ind+1)/(elapsedTime/1000)}!`;
         typedValue.className='hidden';
         quoteElement.innerHTML='';
         typedValueElement.value = '';
